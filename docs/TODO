@@ -1,0 +1,18 @@
+Fase 1:
+  Criação doscript de tratamento da URL
+  ☐ Criar script que faz a codificação da url;
+  ☐ Criar querystring através do objeto filters; @critical
+  ☐ Tornar objeto de filters dinâmica, exugando os resultados; @critical
+
+Fase 2:
+  Criação das requisições e exibição dos dados e filtros
+  ☐ Requisitar dados através url;
+  ☐ Tornar parâmetro page da url dinâmica;
+  ☐ Exibir dados em tabela;
+  ☐ Criar paginação passando os parâmetros dinâmicos para url;
+  ☐ Contruir formulário de filters básicos;
+  ☐ Capturar e passar os filters escolhidos para o objeto filters;
+
+Fase 3:
+  Estilização da aplicação
+  ☐ Aplicar estilos nos componentes;
