@@ -15,11 +15,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data, setData] = useState(null);
 
-  // const queryString = "%7B%7D";
-  // const baseURL =
-  //   "https://statusinvest.com.br/category/advancedsearchresultpaginated";
-  const urlFinal =
-    "https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=37&take=10&CategoryType=2";
+  const urlFinal = "http://localhost:3001/api/proxy"
 
   useEffect(() => {
     axios
@@ -39,7 +35,6 @@ export default function Home() {
       });
   }, [data, urlFinal]);
 
-  console.log(data);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
