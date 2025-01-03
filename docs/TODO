@@ -1,19 +1,22 @@
+Criação de back-end proxy  para contornar a autorização de CORS do servidor desconhecido.
 Fase 1:
-  Criação doscript de tratamento da URL
-  ☐ Criar script que faz a codificação da url;
-  ☐ Criar querystring através do objeto filters; @critical
-  ☐ Tornar objeto de filters dinâmica, exugando os resultados; @critical
-
+  ✘ Criar script que faz a codificação da url; @cancelled(25-01-03 19:45)
+  ✘ Criar querystring através do objeto filters; @critical @cancelled(25-01-03 19:45)
+  ✔ Criar um API back-end  proxy com recursos do NextJS; @done(25-01-03 19:48) @critical
+  ✔ Consumir o back-end proxy no front-end; @done(25-01-03 19:48) @critical
+  QueryParams:
+       ☐ Enviar parâmetro page através da api proxy dinâmica; @high
+       ☐ Enviar parâmetro take através da api proxy dinâmica; @high
+  
+  Criação das requisições e exibição dos dados em tela e contrução dos filtros.
 Fase 2:
-  Criação das requisições e exibição dos dados e filtros
-  ☐ Requisitar dados através url;
-  ☐ Tornar parâmetro page da url dinâmica;
   ☐ Exibir dados em tabela;
+  ✘ Requisitar dados através url; @cancelled(25-01-03 19:48)
   ☐ Criar paginação passando os parâmetros dinâmicos para url;
   ☐ Contruir formulário de filters básicos;
   ☐ Capturar e passar os filters escolhidos para o objeto filters;
 
+Implementação de estilo.
 Fase 3:
-  Estilização da aplicação
   ☐ Aplicar estilos básico nos componentes com shadcn; @2.5h @link:https://ui.shadcn.com/docs/components
   
