@@ -1,6 +1,6 @@
 export async function GET() {
   try {
-      const response = await fetch('https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=37&take=10&CategoryType=2');
+      const response = await fetch('https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=02&take=50&CategoryType=2');
       const data = await response.json();
       return new Response(JSON.stringify(data), {
           status: 200,
