@@ -4,13 +4,17 @@ Fase 1:
   ✘ Criar querystring através do objeto filters; @critical @cancelled(25-01-03 19:45)
   ✔ Criar um API back-end  proxy com recursos do NextJS; @done(25-01-03 19:48) @critical
   ✔ Consumir o back-end proxy no front-end; @done(25-01-03 19:48) @critical
+  ✔ Organizar estrutura de pastas; @critical @started(25-01-13 13:55) @done(25-01-13 14:18) @lasted(23m18s)
+  ✔ Criar layout/template padrão; @high @started(25-01-13 14:18) @done(25-01-13 15:06) @lasted(48m42s)
+
   QueryParams:
        ☐ Enviar parâmetro page através da api proxy dinâmica; @high
        ☐ Enviar parâmetro take através da api proxy dinâmica; @high
   
   Criação das requisições e exibição dos dados em tela e contrução dos filtros.
 Fase 2:
-  ☐ Exibir dados em tabela;
+  ✔ Exibir dados em tabela; @critical @done(25-01-04 08:38)
+  ☐ Utilizar Suspense; @low
   ✘ Requisitar dados através url; @cancelled(25-01-03 19:48)
   ☐ Criar paginação passando os parâmetros dinâmicos para url;
   ☐ Contruir formulário de filters básicos;
@@ -19,4 +23,8 @@ Fase 2:
 Implementação de estilo.
 Fase 3:
   ☐ Aplicar estilos básico nos componentes com shadcn; @2.5h @link:https://ui.shadcn.com/docs/components
-  
+  ☐ Inserir tag de ambiente de desenvolvimento; @low
+  ☐ Criar Skeleton utilizando Suspense e fallback; @low
+
+  Estilização específica:
+    ☐ Parâmetro take vai exibir um dropdown com limites de 10 25 e 50 linhas da tabela; @low
