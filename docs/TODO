@@ -1,30 +1,39 @@
+## MPV:
+
 Criação de back-end proxy  para contornar a autorização de CORS do servidor desconhecido.
 Fase 1:
   ✘ Criar script que faz a codificação da url; @cancelled(25-01-03 19:45)
   ✘ Criar querystring através do objeto filters; @critical @cancelled(25-01-03 19:45)
-  ✔ Criar um API back-end  proxy com recursos do NextJS; @done(25-01-03 19:48) @critical
-  ✔ Consumir o back-end proxy no front-end; @done(25-01-03 19:48) @critical
-  ✔ Organizar estrutura de pastas; @critical @started(25-01-13 13:55) @done(25-01-13 14:18) @lasted(23m18s)
+  ✔ Criar um API back-end proxy com recursos do NextJS; @done(25-01-03 19:48) @critical
+  ✔ Consumir o back-end proxy no front-end NextJS; @done(25-01-03 19:48) @critical
+  ✔ Organizar estrutura de pastas do projeto; @critical @started(25-01-13 13:55) @done(25-01-13 14:18) @lasted(23m18s)
   ✔ Criar layout/template padrão; @high @started(25-01-13 14:18) @done(25-01-13 15:06) @lasted(48m42s)
 
   QueryParams:
-       ☐ Enviar parâmetro page através da api proxy dinâmica; @high
-       ☐ Enviar parâmetro take através da api proxy dinâmica; @high
+    ✔ Enviar parâmetros dinamicamente através `urlFinal` para o backend proxy; @high @started(25-01-27 12:34) @done(25-01-27 13:21) @lasted(48m)
   
-  Criação das requisições e exibição dos dados em tela e contrução dos filtros.
+Criação das requisições e exibição dos dados em tela e contrução dos filtros.
 Fase 2:
   ✔ Exibir dados em tabela; @critical @done(25-01-04 08:38)
-  ☐ Utilizar Suspense; @low
   ✘ Requisitar dados através url; @cancelled(25-01-03 19:48)
-  ☐ Criar paginação passando os parâmetros dinâmicos para url;
-  ☐ Contruir formulário de filters básicos;
-  ☐ Capturar e passar os filters escolhidos para o objeto filters;
+  Deve ser considerado que a funcionalidade core da aplicação é a tabela.
+  ☐ Utlizar *TanStack* Table para mais recursos de filtragem avançada e fuzzy; @critical
+    Assets from TanStack Tabele:
+      ☐ Fuzzy Search Filters;
+      ☐ Collumn Filters;
+
+  ✘ Criar formulário de filtros; @critical @cancelled(25-01-28 11:53)
+  ☐ Criar paginação dinâmica passando os parâmetros para `urlFinal`; @high
+  ☐ Capturar e passar os filtros e pessar para a `urlFinal`;
+  ☐ Utilizar React Suspense na renderização da `Tabela`; @low
 
 Implementação de estilo.
 Fase 3:
-  ☐ Aplicar estilos básico nos componentes com shadcn; @2.5h @link:https://ui.shadcn.com/docs/components
+  ✔ Aplicar estilos básico nos componentes com shadcn; @2.5h @link:https://ui.shadcn.com/docs/components @done(25-01-28 11:55)
   ☐ Inserir tag de ambiente de desenvolvimento; @low
-  ☐ Criar Skeleton utilizando Suspense e fallback; @low
+  ☐ Criar Skeleton utilizando `React Suspense fallback property`; @low`
+  ☐ Aplicar estilo final aos componentes;
 
   Estilização específica:
-    ☐ Parâmetro take vai exibir um dropdown com limites de 10 25 e 50 linhas da tabela; @low
+    Por padrão o `take` exibe 10 itens na lista.
+    ☐ Parâmetro `take` vai exibir um dropdown com limites de 5 10 e 20 linhas da tabela; @low
