@@ -1,5 +1,5 @@
 # Scraping URL 
-GET  https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=10&take=50&CategoryType=2 HTTP/1.1
+GET  https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=12&take=50&CategoryType=2 HTTP/1.1
 Content-Type: application/json
 
 ###

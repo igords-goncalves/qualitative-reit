@@ -1,7 +1,7 @@
 function createQueryString(req: Request) {
   const { searchParams } = new URL(req.url);
 
-  const search = searchParams.get("search") || "%7B%7D";
+  const search = searchParams.get("search");
   const page = searchParams.get("page");
   const take = searchParams.get("take");
   const CategoryType = searchParams.get("CategoryType");
@@ -10,6 +10,7 @@ function createQueryString(req: Request) {
     return new Response(JSON.stringify({ error: "Missing parameters" }), {
       status: 400,
     });
+    
   const queryString = new URLSearchParams({
     search,
     page,
