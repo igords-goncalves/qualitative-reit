@@ -1,11 +1,9 @@
-# Backend proxy get list of reits
-
-GET  https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=02&take=50&CategoryType=2 HTTP/1.1
+# Scraping URL 
+GET  https://statusinvest.com.br/category/advancedsearchresultpaginated?search=%7B%7D&page=10&take=50&CategoryType=2 HTTP/1.1
 Content-Type: application/json
 
 ###
 
+# Backend proxy
 GET  http://localhost:3000/api/proxy HTTP/1.1
 Content-Type: application/json
-
-###
