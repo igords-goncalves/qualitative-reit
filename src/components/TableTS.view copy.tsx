@@ -3,7 +3,7 @@
 import { Input } from "./ui/input";
 import { Reit } from "./models/Reit";
 import { useState } from "react";
-import COLUMNS from "../constants/columns";
+import COLUMNS from "./ui/columns";
 import {
   flexRender,
   getCoreRowModel,

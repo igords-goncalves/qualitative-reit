@@ -13,9 +13,21 @@ const COLUMNS = [
     header: () => "Ticker",
   }),
   columnHelper.accessor("sectorname", {
-    cell: (info) => info.getValue(),
+    cell: (info) => (
+      <span
+        className={`${
+          info.getValue() === "Fundo de Tijolo"
+            ? "bg-green-300 text-green-600"
+            : info.getValue() === "Fundo de Papel"
+            ? "bg-blue-300 text-blue-600"
+            : "bg-amber-300 text-amber-600"
+        } p-1 rounded-lg font-bold text-[11px]`}
+      >
+        {info.getValue()}
+      </span>
+    ),
     header: () => "Setor",
-  }),
+  }), 
   columnHelper.accessor("p_vp", {
     cell: (info) => info.getValue(),
     header: () => "P/VP",
@@ -32,6 +44,6 @@ const COLUMNS = [
     cell: (info) => info.getValue(),
     header: () => "Seguimento",
   }),
-]
+];
 
 export default COLUMNS;
