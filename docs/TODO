@@ -17,21 +17,21 @@ Fase 2:
   ✔ Exibir dados em tabela; @critical @done(25-01-04 08:38)
   ✘ Requisitar dados através url; @cancelled(25-01-03 19:48)
   Deve ser considerado que a funcionalidade core da aplicação é a tabela.
-  ☐ Utlizar *TanStack* Table para mais recursos de filtragem avançada e fuzzy; @critical
-    Assets from TanStack Tabele:
-      ☐ Fuzzy Search Filters;
-      ☐ Collumn Filters;
-
-  ✘ Criar formulário de filtros; @critical @cancelled(25-01-28 11:53)
   ☐ Criar paginação dinâmica passando os parâmetros para `urlFinal`; @high
-  ☐ Capturar e passar os filtros e pessar para a `urlFinal`;
-  ☐ Utilizar React Suspense na renderização da `Tabela`; @low
-
+  ☐ Mostrar página autal na `urlFinal` ou exibindo a informação em tela para o usuário;s
+  ✘ Criar formulário de filtros; @critical @cancelled(25-01-28 11:53)
+  ☐ Utlizar *TanStack* Table; @critical
+  
+  Assets from TanStack Table:
+    ☐ Fuzzy Search Filters;
+    ☐ Collumn Filters;
+    
 Implementação de estilo.
 Fase 3:
   ✔ Aplicar estilos básico nos componentes com shadcn; @2.5h @link:https://ui.shadcn.com/docs/components @done(25-01-28 11:55)
   ☐ Inserir tag de ambiente de desenvolvimento; @low
   ☐ Criar Skeleton utilizando `React Suspense fallback property`; @low`
+  ☐ Utilizar lazy load na renderização da `Tabela`; @low
   ☐ Aplicar estilo final aos componentes;
 
   Estilização específica:
