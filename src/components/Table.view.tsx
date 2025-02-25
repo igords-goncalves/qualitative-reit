@@ -1,3 +1,14 @@
+"use client";
+
+import { Input } from "./ui/input";
+import { Reit } from "../core/models/Reit";
+import { useState } from "react";
+import COLUMNS from "./ui/columns";
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import {
   Table,
   TableBody,
@@ -6,25 +17,30 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-
+} from "./ui/table";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "./ui/pagination";
-import { Input } from "./ui/input";
-import { Reit } from "./models/Reit";
 
 type TableViewProps = {
   reits: Reit[];
+  totalResults: number[];
 };
 
-const TableView = ({ reits }: TableViewProps) => {
+const TableView = ({ reits, totalResults }: TableViewProps) => {
+  const [data] = useState(() => [...reits]);
+
+  const table = useReactTable({
+    data,
+    columns: COLUMNS,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   if (!reits || !Array.isArray(reits)) {
     return <div>Nenhum dado disponível.</div>;
   }
@@ -35,80 +51,55 @@ const TableView = ({ reits }: TableViewProps) => {
         placeholder="Empresa / Ticker / Setor ..."
         className="w-1/2 bg-white"
       />
-
       <div className="bg-white rounded-md border mt-6 shadow-sm">
         <Table>
           <TableCaption className="py-3">
             Lista de fundos cadastrados na B3.
           </TableCaption>
           <TableHeader>
-            <TableRow>
-              <TableHead colSpan={2} className="font-bold">
-                Empresa
-              </TableHead>
-              <TableHead className="font-bold">Ticker</TableHead>
-              <TableHead className="text-center font-bold">Setor</TableHead>
-              <TableHead className="font-bold text-center">P/VP</TableHead>
-              <TableHead className="font-bold text-center">DY</TableHead>
-              <TableHead className="font- text-center font-bold">
-                Liquidez Diária
-              </TableHead>
-              <TableHead className="text-right font-bold">Seguimento</TableHead>
-            </TableRow>
-          </TableHeader>
-          {reits.map((reit: Reit) => (
-            <TableBody key={reit.companyid}>
-              <TableRow>
-                <TableCell colSpan={2} className="text-gray-600 text-xs">
-                  {reit.companyname.toUpperCase()}
-                </TableCell>
-                <TableCell className="font-semibold text-gray-900">
-                  {reit.ticker}
-                </TableCell>
-                <TableCell className="text-center">
-                  <span
-                    className={`${
-                      reit.sectorname === "Fundo de Tijolo"
-                        ? "bg-green-300 text-green-600"
-                        : reit.sectorname === "Fundo de Papel"
-                        ? "bg-blue-300 text-blue-600"
-                        : "bg-amber-300 text-amber-600"
-                    } p-1 rounded-lg font-bold text-[11px]`}
-                  >
-                    {reit.sectorname}
-                  </span>
-                </TableCell>
-                <TableCell className="text-gray-600 text-xs text-center">
-                  {reit.p_vp ?? 0.0}
-                </TableCell>
-                <TableCell className="text-gray-600 text-xs text-center">
-                  {reit.dy}
-                </TableCell>
-                <TableCell className="text-gray-600 text-center text-xs">
-                  R$ {reit.liquidezmediadiaria ?? 0}
-                </TableCell>
-                <TableCell className="text-right text-gray-600 text-xs">
-                  {reit.segment}
-                </TableCell>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead className="font-bold" key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
               </TableRow>
-            </TableBody>
-          ))}
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell className="text-gray-600 text-xs" key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
       </div>
 
       <Pagination className="mt-6">
-        <PaginationContent>
+        <PaginationContent className="w-1/2">
           <PaginationItem>
             <PaginationPrevious href="#" />
           </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
+          <PaginationItem className="w-full">
+            <PaginationLink href="#" className="w-full flex justify-evenly">
+              {totalResults.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext href="#"/>
           </PaginationItem>
         </PaginationContent>
       </Pagination>
